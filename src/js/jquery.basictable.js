@@ -8,7 +8,26 @@
       const headings = []
 
       if (data.tableWrap) {
-        table.wrap('<div class="bt-wrapper"></div>')
+        let wrapperClasses = 'bt-wrapper'
+        
+        // Add card style classes
+        if (data.cardStyle === 'compact') {
+          wrapperClasses += ' bt-card-compact'
+        } else if (data.cardStyle === 'shadow') {
+          wrapperClasses += ' bt-card-shadow'
+        }
+        
+        // Add scrollable class if enabled
+        if (data.scrollable) {
+          wrapperClasses += ' bt-scrollable'
+        }
+        
+        table.wrap(`<div class="${wrapperClasses}"></div>`)
+        
+        // Set max height if specified
+        if (data.maxHeight) {
+          table.closest('.bt-wrapper').css('max-height', data.maxHeight).addClass('bt-scrollable')
+        }
       }
 
       // Table Header
@@ -215,6 +234,9 @@
     noResize: false,
     tableWrap: false,
     showEmptyCells: false,
-    header: true
+    header: true,
+    cardStyle: 'default', // 'default', 'compact', 'shadow'
+    scrollable: false,
+    maxHeight: null
   }
 })(jQuery)

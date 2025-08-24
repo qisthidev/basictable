@@ -1,6 +1,6 @@
 # Basic Table
 
-A simple lightweight jQuery or Vanilla JS responsive table library. A library to setup tables for a basic responsive table stucture. Utilizing the techniques of http://css-tricks.com/responsive-data-tables/. This is to assists in those situations where the users don't necessarily have access or capacity to modify HTML such as input from a WYSIWYG.
+A simple lightweight jQuery or Vanilla JS responsive table library with modern Preline UI-compliant card-style design. A library to setup tables for a responsive table structure that transforms into beautiful cards on mobile devices. Utilizing modern responsive design techniques that prioritize readability and user experience across all screen sizes.
 
 **[View Demo (jQuery)](http://www.jerrylow.com/basictable/demo/index.html)**
 
@@ -103,6 +103,27 @@ When true, empty cells will be shown.
 
 Set to false if table does not have a header row. Table will just be responsive with table body and optional footer.
 
+### cardStyle
+
+`string` `default: 'default'`
+
+Choose the card style for responsive mode. Options are:
+- `'default'` - Standard card styling with modern shadows and spacing
+- `'compact'` - Reduced padding and spacing for tables with many rows
+- `'shadow'` - Enhanced shadows for a more elevated appearance
+
+### scrollable
+
+`boolean` `default: false`
+
+Enable scrolling within the table container when in responsive mode. Useful for tables with many rows.
+
+### maxHeight
+
+`string` `default: null`
+
+Set a maximum height for the table container in responsive mode (e.g., '300px', '50vh'). Automatically enables scrollable behavior.
+
 ## Methods (jQuery)
 
 ### start
@@ -176,3 +197,61 @@ Run `destroy`, `setup` then `check` without resetting the table data. Run this i
 ```js
 table.restart();
 ```
+
+## Preline UI-Compliant Design Features
+
+### Card-Style Responsive Layout
+
+This library now features modern card-style responsive design that follows Preline UI patterns:
+
+- **Traditional table on desktop/large screens** - Full horizontal layout with all columns visible
+- **Card-style layout on mobile** - Each row transforms into a styled card with proper spacing, shadows, and typography
+- **No horizontal scrolling** - Eliminates the need for users to scroll horizontally on small screens
+- **Enhanced readability** - Field labels are clearly displayed above their values in mobile view
+
+### Styling Options
+
+Choose from multiple card styles to match your design:
+
+```js
+// Default card style
+new basictable('.table', {
+  tableWrap: true,
+  cardStyle: 'default'
+});
+
+// Compact cards for dense data
+new basictable('.table', {
+  tableWrap: true,
+  cardStyle: 'compact'
+});
+
+// Enhanced shadows for elevated appearance
+new basictable('.table', {
+  tableWrap: true,
+  cardStyle: 'shadow'
+});
+```
+
+### Scrollable Containers
+
+For tables with many rows, enable scrolling within the responsive container:
+
+```js
+new basictable('.table', {
+  tableWrap: true,
+  scrollable: true,
+  maxHeight: '400px'
+});
+```
+
+### Dark Mode Support
+
+The card-style design includes automatic dark mode support using CSS `prefers-color-scheme` media queries.
+
+### Modern Features
+
+- **Smooth transitions** - Hover effects and state changes are animated
+- **Accessible design** - Proper contrast ratios and semantic markup
+- **Mobile-first approach** - Optimized for touch interactions
+- **Flexible typography** - Scales appropriately across devices

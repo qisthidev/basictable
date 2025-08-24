@@ -1,39 +1,89 @@
 /*
- * jQuery Basic Table
+ * Basic Table - Preline UI Compliant Responsive Tables
  * Author: Jerry Low
+ * Modern card-style responsive design for mobile devices
  */
+
+/* Hide table headers on mobile */
 
 table.bt thead,
 table.bt tbody th {
   display: none;
 }
 
+/* Card-style layout for mobile - each row becomes a card */
+
+table.bt tbody {
+  display: block;
+}
+
+table.bt tbody tr {
+  display: block;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+table.bt tbody tr:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+table.bt tbody tr:last-child {
+  margin-bottom: 0;
+}
+
+/* Each cell becomes a row within the card */
+
 table.bt tfoot th,
 table.bt tfoot td,
 table.bt tbody td {
   border: none;
   display: block;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  vertical-align: top;
-  /* IE 9 */
-  float: left\9;
-  width: 100%\9;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f3f4f6;
+  text-align: left;
 }
+
+table.bt tbody td:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+table.bt tbody td:first-child {
+  padding-top: 0;
+}
+
+/* Label styling for each field */
 
 table.bt tfoot th::before,
 table.bt tfoot td::before,
 table.bt tbody td::before {
-  content: attr(data-th) ": ";
-  display: inline-block;
-  -webkit-flex-shrink: 0;
-  -ms-flex-shrink: 0;
-  flex-shrink: 0;
-  font-weight: bold;
-  width: 6.5em;
+  content: attr(data-th);
+  display: block;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #374151;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
+
+/* Content styling */
+
+table.bt tfoot th .bt-content,
+table.bt tfoot td .bt-content,
+table.bt tbody td .bt-content {
+  display: block;
+  color: #6b7280;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Hide empty cells */
 
 table.bt tfoot th.bt-hide,
 table.bt tfoot td.bt-hide,
@@ -41,19 +91,84 @@ table.bt tbody td.bt-hide {
   display: none;
 }
 
-table.bt tfoot th .bt-content,
-table.bt tfoot td .bt-content,
-table.bt tbody td .bt-content {
-  vertical-align: top;
+/* Footer styling for responsive mode */
+
+table.bt tfoot {
+  display: block;
 }
 
+table.bt tfoot tr {
+  display: block;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+/* Wrapper with scrolling capability */
+
 .bt-wrapper.active {
-  max-height: 310px;
-  overflow: auto;
+  max-height: none;
+  overflow: visible;
+}
+
+/* Optional: Add scrollable container for very tall tables */
+
+.bt-wrapper.active.bt-scrollable {
+  max-height: 400px;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
+
+/* No header variant */
 
 table.bt.bt--no-header tfoot td::before,
 table.bt.bt--no-header tbody td::before {
   display: none;
+}
+
+/* Utility classes for enhanced styling */
+
+.bt-card-compact table.bt tbody tr {
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.bt-card-compact table.bt tbody td {
+  padding: 0.375rem 0;
+}
+
+.bt-card-shadow table.bt tbody tr {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.bt-card-shadow table.bt tbody tr:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Dark mode support */
+
+@media (prefers-color-scheme: dark) {
+  table.bt tbody tr {
+    background: #1f2937;
+    border-color: #374151;
+  }
+
+  table.bt tbody td {
+    border-color: #4b5563;
+  }
+
+  table.bt tbody td::before {
+    color: #d1d5db;
+  }
+
+  table.bt tbody td .bt-content {
+    color: #9ca3af;
+  }
+
+  table.bt tfoot tr {
+    background: #111827;
+    border-color: #374151;
+  }
 }

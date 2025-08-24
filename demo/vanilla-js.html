@@ -505,6 +505,227 @@
     }
   </code>
 
+  <h2>Preline UI-Compliant Card Style (NEW)</h2>
+  <p>Modern card-style responsive design that follows Preline UI patterns. Each row becomes a beautifully styled card on mobile devices, providing better readability and user experience.</p>
+
+  <table id="table-preline-default" class="table">
+    <thead>
+      <tr>
+        <th>Customer</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Plan</th>
+        <th>Revenue</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Alice Johnson</td>
+        <td>alice.johnson@example.com</td>
+        <td>Active</td>
+        <td>Premium</td>
+        <td>$299/mo</td>
+        <td>Edit | Delete</td>
+      </tr>
+      <tr>
+        <td>Bob Smith</td>
+        <td>bob.smith@example.com</td>
+        <td>Pending</td>
+        <td>Basic</td>
+        <td>$49/mo</td>
+        <td>Edit | Delete</td>
+      </tr>
+      <tr>
+        <td>Carol Davis</td>
+        <td>carol.davis@example.com</td>
+        <td>Active</td>
+        <td>Enterprise</td>
+        <td>$999/mo</td>
+        <td>Edit | Delete</td>
+      </tr>
+      <tr>
+        <td>David Wilson</td>
+        <td>david.wilson@example.com</td>
+        <td>Inactive</td>
+        <td>Basic</td>
+        <td>$0/mo</td>
+        <td>Edit | Delete</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <code class="js">
+    new basictable('#table-preline-default', {<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;tableWrap: true,<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;cardStyle: 'default'<br />
+    });
+  </code>
+
+  <h3>Compact Card Style</h3>
+  <p>More compact cards with reduced padding for tables with many rows.</p>
+
+  <table id="table-preline-compact" class="table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>SKU</th>
+        <th>Stock</th>
+        <th>Price</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Wireless Headphones</td>
+        <td>WH-001</td>
+        <td>25</td>
+        <td>$89.99</td>
+        <td>Electronics</td>
+      </tr>
+      <tr>
+        <td>Bluetooth Speaker</td>
+        <td>BS-002</td>
+        <td>12</td>
+        <td>$59.99</td>
+        <td>Electronics</td>
+      </tr>
+      <tr>
+        <td>Smart Watch</td>
+        <td>SW-003</td>
+        <td>8</td>
+        <td>$199.99</td>
+        <td>Wearables</td>
+      </tr>
+      <tr>
+        <td>Phone Case</td>
+        <td>PC-004</td>
+        <td>50</td>
+        <td>$19.99</td>
+        <td>Accessories</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <code class="js">
+    new basictable('#table-preline-compact', {<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;tableWrap: true,<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;cardStyle: 'compact'<br />
+    });
+  </code>
+
+  <h3>Enhanced Shadow Card Style</h3>
+  <p>Cards with enhanced shadows for a more elevated appearance.</p>
+
+  <table id="table-preline-shadow" class="table">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Attendees</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tech Conference 2024</td>
+        <td>March 15, 2024</td>
+        <td>San Francisco, CA</td>
+        <td>1,250</td>
+        <td>Confirmed</td>
+      </tr>
+      <tr>
+        <td>Design Workshop</td>
+        <td>April 8, 2024</td>
+        <td>New York, NY</td>
+        <td>75</td>
+        <td>Planning</td>
+      </tr>
+      <tr>
+        <td>Developer Meetup</td>
+        <td>May 22, 2024</td>
+        <td>Austin, TX</td>
+        <td>200</td>
+        <td>Registration Open</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <code class="js">
+    new basictable('#table-preline-shadow', {<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;tableWrap: true,<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;cardStyle: 'shadow'<br />
+    });
+  </code>
+
+  <h3>Scrollable Card Container</h3>
+  <p>For tables with many rows, you can enable scrolling within the card container.</p>
+
+  <table id="table-preline-scrollable" class="table">
+    <thead>
+      <tr>
+        <th>Transaction ID</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>TXN-001</td>
+        <td>$125.50</td>
+        <td>2024-01-15</td>
+        <td>Purchase</td>
+        <td>Completed</td>
+      </tr>
+      <tr>
+        <td>TXN-002</td>
+        <td>$89.99</td>
+        <td>2024-01-14</td>
+        <td>Refund</td>
+        <td>Pending</td>
+      </tr>
+      <tr>
+        <td>TXN-003</td>
+        <td>$250.00</td>
+        <td>2024-01-13</td>
+        <td>Purchase</td>
+        <td>Completed</td>
+      </tr>
+      <tr>
+        <td>TXN-004</td>
+        <td>$45.75</td>
+        <td>2024-01-12</td>
+        <td>Purchase</td>
+        <td>Completed</td>
+      </tr>
+      <tr>
+        <td>TXN-005</td>
+        <td>$180.25</td>
+        <td>2024-01-11</td>
+        <td>Purchase</td>
+        <td>Failed</td>
+      </tr>
+      <tr>
+        <td>TXN-006</td>
+        <td>$99.99</td>
+        <td>2024-01-10</td>
+        <td>Purchase</td>
+        <td>Completed</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <code class="js">
+    new basictable('#table-preline-scrollable', {<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;tableWrap: true,<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;scrollable: true,<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;maxHeight: '300px'<br />
+    });
+  </code>
+
   <p class="credits"><span class="phone-block"><strong>Author:</strong> Jerry Low (<a href="https://twitter.com/jerrylowm" target="_blank">@jerrylowm</a>)</span><span class="phone-hide">&nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="phone-block"><strong>Palette Design:</strong> Amit Jakhu (<a href="https://twitter.com/amitjakhu">@amitjakhu</a>)</span>
 </div>
 
@@ -533,6 +754,28 @@
   });
 
   new basictable('#table-two-axis');
+
+  // New Preline UI-compliant examples
+  new basictable('#table-preline-default', {
+    tableWrap: true,
+    cardStyle: 'default'
+  });
+
+  new basictable('#table-preline-compact', {
+    tableWrap: true,
+    cardStyle: 'compact'
+  });
+
+  new basictable('#table-preline-shadow', {
+    tableWrap: true,
+    cardStyle: 'shadow'
+  });
+
+  new basictable('#table-preline-scrollable', {
+    tableWrap: true,
+    scrollable: true,
+    maxHeight: '300px'
+  });
 </script>
 </body>
 </html>

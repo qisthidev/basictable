@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Basic Table - Preline UI vs Traditional Comparison</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #f8fafc;
+      color: #374151;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    h1 {
+      color: #1f2937;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    h2 {
+      color: #374151;
+      font-size: 1.75rem;
+      margin: 3rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e5e7eb;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .comparison {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .comparison-section {
+      background: white;
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .comparison-section h3 {
+      color: #1f2937;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Traditional styling */
+    .traditional table.bt tbody td::before {
+      background: #6b7280;
+      color: white;
+      padding: 0.25rem 0.5rem;
+      margin-right: 0.5rem;
+      border-radius: 0.25rem;
+    }
+
+    .traditional table.bt tbody td {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    /* Base table styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+
+    table th,
+    table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    table th {
+      background: #f9fafb;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    table tbody tr:hover {
+      background: #f9fafb;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin: 1rem 0;
+    }
+
+    .feature-list li {
+      padding: 0.5rem 0;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .feature-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #10b981;
+      font-weight: bold;
+    }
+
+    .note {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin: 2rem 0;
+    }
+
+    .note p {
+      margin: 0;
+      color: #1e40af;
+    }
+
+    .device-preview {
+      background: #1f2937;
+      border-radius: 1rem;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+
+    .device-frame {
+      background: white;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    @media (max-width: 568px) {
+      .mobile-demo {
+        display: block;
+      }
+      
+      .desktop-demo {
+        display: none;
+      }
+    }
+
+    @media (min-width: 569px) {
+      .mobile-demo {
+        display: none;
+      }
+      
+      .desktop-demo {
+        display: block;
+      }
+    }
+  </style>
+
+  <link rel="stylesheet" type="text/css" href="../dist/css/basictable.min.css" />
+  <script type="text/javascript" src="../dist/js/basictable.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+  <h1>Preline UI vs Traditional Responsive Tables</h1>
+  
+  <div class="note">
+    <p><strong>Resize your browser window or view on mobile</strong> to see the differences between traditional stacked rows and modern card-style responsive design.</p>
+  </div>
+
+  <h2>Traditional Approach (Old)</h2>
+  <div class="traditional">
+    <table id="traditional-table">
+      <thead>
+        <tr>
+          <th>Customer</th>
+          <th>Email</th>
+          <th>Plan</th>
+          <th>Status</th>
+          <th>Revenue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John Smith</td>
+          <td>john@example.com</td>
+          <td>Premium</td>
+          <td>Active</td>
+          <td>$299/mo</td>
+        </tr>
+        <tr>
+          <td>Jane Doe</td>
+          <td>jane@example.com</td>
+          <td>Basic</td>
+          <td>Pending</td>
+          <td>$49/mo</td>
+        </tr>
+        <tr>
+          <td>Bob Johnson</td>
+          <td>bob@example.com</td>
+          <td>Enterprise</td>
+          <td>Active</td>
+          <td>$999/mo</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Preline UI-Compliant Approach (New)</h2>
+  <div class="preline">
+    <table id="preline-table">
+      <thead>
+        <tr>
+          <th>Customer</th>
+          <th>Email</th>
+          <th>Plan</th>
+          <th>Status</th>
+          <th>Revenue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John Smith</td>
+          <td>john@example.com</td>
+          <td>Premium</td>
+          <td>Active</td>
+          <td>$299/mo</td>
+        </tr>
+        <tr>
+          <td>Jane Doe</td>
+          <td>jane@example.com</td>
+          <td>Basic</td>
+          <td>Pending</td>
+          <td>$49/mo</td>
+        </tr>
+        <tr>
+          <td>Bob Johnson</td>
+          <td>bob@example.com</td>
+          <td>Enterprise</td>
+          <td>Active</td>
+          <td>$999/mo</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Feature Comparison</h2>
+  <div class="comparison">
+    <div class="comparison-section">
+      <h3>Traditional Stacked Rows</h3>
+      <ul class="feature-list">
+        <li>Stacks cells vertically</li>
+        <li>Basic label:value format</li>
+        <li>Minimal styling</li>
+        <li>Functional but plain</li>
+        <li>No visual separation between rows</li>
+      </ul>
+    </div>
+
+    <div class="comparison-section">
+      <h3>Preline UI Card-Style</h3>
+      <ul class="feature-list">
+        <li>Beautiful card-based layout</li>
+        <li>Modern shadows and spacing</li>
+        <li>Enhanced typography</li>
+        <li>Clear visual hierarchy</li>
+        <li>Hover effects and transitions</li>
+        <li>Dark mode support</li>
+        <li>Multiple style variants</li>
+        <li>Better mobile UX</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Style Variants Available</h2>
+  
+  <h3>Compact Style</h3>
+  <table id="compact-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>SKU</th>
+        <th>Stock</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Wireless Mouse</td>
+        <td>WM-001</td>
+        <td>45</td>
+        <td>$29.99</td>
+      </tr>
+      <tr>
+        <td>Bluetooth Keyboard</td>
+        <td>BK-002</td>
+        <td>23</td>
+        <td>$79.99</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Shadow Style</h3>
+  <table id="shadow-table">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Attendees</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tech Conference</td>
+        <td>March 15, 2024</td>
+        <td>San Francisco</td>
+        <td>1,250</td>
+      </tr>
+      <tr>
+        <td>Design Workshop</td>
+        <td>April 8, 2024</td>
+        <td>New York</td>
+        <td>75</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note">
+    <p><strong>Benefits of the new approach:</strong> Better readability on mobile devices, modern design that fits current UI trends, no horizontal scrolling required, and enhanced user experience across all device sizes.</p>
+  </div>
+</div>
+
+<script type="text/javascript">
+  // Traditional approach - using the old behavior by setting custom CSS
+  const traditional = new basictable('#traditional-table', {
+    breakpoint: 568
+  });
+
+  // Add old-style CSS for traditional table
+  const style = document.createElement('style');
+  style.textContent = `
+    .traditional table.bt tbody td::before {
+      content: attr(data-th) ": ";
+      display: inline-block;
+      font-weight: bold;
+      width: 6.5em;
+      background: #6b7280;
+      color: white;
+      padding: 0.25rem 0.5rem;
+      margin-right: 0.5rem;
+      border-radius: 0.25rem;
+    }
+    
+    .traditional table.bt tbody td {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .traditional table.bt tbody tr {
+      display: block;
+      margin-bottom: 0.5rem;
+      background: white;
+      border: 1px solid #e5e7eb;
+      padding: 0.5rem;
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Preline UI approach - using the new card-style design
+  new basictable('#preline-table', {
+    tableWrap: true,
+    cardStyle: 'default',
+    breakpoint: 568
+  });
+
+  // Style variants
+  new basictable('#compact-table', {
+    tableWrap: true,
+    cardStyle: 'compact',
+    breakpoint: 568
+  });
+
+  new basictable('#shadow-table', {
+    tableWrap: true,
+    cardStyle: 'shadow',
+    breakpoint: 568
+  });
+</script>
+</body>
+</html>

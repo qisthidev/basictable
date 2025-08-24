@@ -1,59 +1,69 @@
 # Basic Table
 
-A simple lightweight jQuery or Vanilla JS responsive table library with modern Preline UI-compliant card-style design. A library to setup tables for a responsive table structure that transforms into beautiful cards on mobile devices. Utilizing modern responsive design techniques that prioritize readability and user experience across all screen sizes.
+A simple lightweight Vanilla JS responsive table library with modern Preline UI-compliant card-style design. Transform your tables into beautiful, responsive layouts that become stylish cards on mobile devices. Utilizing modern responsive design techniques that prioritize readability and user experience across all screen sizes.
 
-**[View Demo (jQuery)](http://www.jerrylow.com/basictable/demo/index.html)**
+**[View Demo](demo/index.html)**
 
-**[View Demo (Vanilla JS)](http://www.jerrylow.com/basictable/demo/vanilla-js.html)**
+**[View Preline UI Comparison](demo/preline-comparison.html)**
 
-## jQuery User Notes for 2.0.0
+## Version 3.0.0 - Vanilla JS Only
 
-The jQuery version remains the same as 1.0.0. While the source remains unchanged there are three things to note when upgrading:
+Starting with version 3.0.0, Basic Table focuses exclusively on Vanilla JavaScript, dropping jQuery dependency for better performance and modern web development practices.
 
-- Distribution files are no longer in the root directory, they've moved to `/dist/js/jquery.basictable.js` and `/dist/js/jquery.basictable.min.js`,
-- The non-minified version is now a beautified version rather than the source file, and
-- The minified version is no longer compressed with uglifyjs, it's compressed using Tercer.
-
-These changes should have no impact on the way it functions in comparison with 1.x.
+### Key Changes:
+- **jQuery version removed** - Focusing on pure JavaScript for better performance
+- **Preline UI-compliant design** - Modern card-style responsive layout
+- **Enhanced mobile experience** - No horizontal scrolling required
+- **Multiple style variants** - Default, compact, and shadow options
+- **Dark mode support** - Automatic adaptation to user preferences
 
 ## Getting Started
 
-### jQuery
-
-Include the CSS and jQuery library in the `<head>` of your page.
-
-```
-<link rel="stylesheet" type="text/css" href="basictable.min.css" />
-
-<script src="jquery.min.js"></script>
-<script type="text/javascript" src="jquery.basictable.min.js"></script>
-```
-
-Initiate on any table(s) with:
-
-```
-$('table').basictable();
-```
-
-### Vanilla JS
-
 Include the CSS and basictable library in the `<head>` of your page.
 
-```
+```html
 <link rel="stylesheet" type="text/css" href="basictable.min.css" />
-
 <script type="text/javascript" src="basictable.min.js"></script>
 ```
 
 Initiate on any table(s) with:
 
-```
+```javascript
 new basictable('table');
 ```
 
-## Options
+## Quick Example
 
-Options are applicable to both the jQuery and Vanilla JS.
+```html
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Plan</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>John Smith</td>
+      <td>john@example.com</td>
+      <td>Premium</td>
+      <td>Active</td>
+    </tr>
+    <!-- more rows -->
+  </tbody>
+</table>
+
+<script>
+new basictable('.data-table', {
+  tableWrap: true,
+  cardStyle: 'default'
+});
+</script>
+```
+
+## Options
 
 ### breakpoint
 
@@ -124,45 +134,11 @@ Enable scrolling within the table container when in responsive mode. Useful for 
 
 Set a maximum height for the table container in responsive mode (e.g., '300px', '50vh'). Automatically enables scrollable behavior.
 
-## Methods (jQuery)
-
-### start
-
-Engage the table in responsive mode. This method can only run after the table has been initialized.
-
-```js
-$('table').basictable('start');
-```
-
-### stop
-
-Toggle the table back to normal mode, removing the responsive look. This does not destory the Basic Table data and wrappers. The table will still work once the breakpoint is met.
-
-```js
-$('table').basictable('stop');
-```
-
-### destroy
-
-Destroy the the responsive bind on the table. This will remove all data and generated wrappers from the table, returning it to its initial state.
-
-```js
-$('table').basictable('destroy');
-```
-
-### restart
-
-Run `destroy`, `setup` then `check` without resetting the table data. Run this if the table dynamically updates.
-
-```js
-$('table').basictable('restart');
-```
-
-## Methods (Vanilla JS)
+## Methods
 
 Methods demonstrated assuming you've defined the object as `table`.
 
-```
+```javascript
 const table = new basictable('.table');
 ```
 
@@ -213,7 +189,7 @@ This library now features modern card-style responsive design that follows Preli
 
 Choose from multiple card styles to match your design:
 
-```js
+```javascript
 // Default card style
 new basictable('.table', {
   tableWrap: true,
@@ -237,7 +213,7 @@ new basictable('.table', {
 
 For tables with many rows, enable scrolling within the responsive container:
 
-```js
+```javascript
 new basictable('.table', {
   tableWrap: true,
   scrollable: true,

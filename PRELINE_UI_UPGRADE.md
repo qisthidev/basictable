@@ -1,8 +1,17 @@
-# Preline UI-Compliant Responsive Table Upgrade
+# Preline UI-Compliant Responsive Table Upgrade - Version 3.0.0
 
 ## Overview
 
-This upgrade transforms the Basic Table library to comply with modern Preline UI design patterns, implementing a card-style responsive layout that provides superior mobile user experience while maintaining full desktop functionality.
+This major version upgrade transforms the Basic Table library to focus exclusively on modern Vanilla JavaScript with Preline UI-compliant design patterns. The library now implements a beautiful card-style responsive layout that provides superior mobile user experience while maintaining full desktop functionality.
+
+## Breaking Changes - Version 3.0.0
+
+⚠️ **jQuery Support Removed**: This version drops jQuery entirely to focus on pure JavaScript performance and modern web standards.
+
+### Migration from 2.x to 3.0
+- Replace jQuery initialization `$('table').basictable()` with `new basictable('table')`
+- Remove jQuery dependency from your project
+- Update method calls from `$('table').basictable('method')` to `tableInstance.method()`
 
 ## Key Changes Made
 
@@ -14,7 +23,7 @@ This upgrade transforms the Basic Table library to comply with modern Preline UI
 - **Dark Mode Support**: Automatic adaptation using `prefers-color-scheme`
 - **Three Style Variants**: Default, compact, and shadow options
 
-### 2. JavaScript Enhancements (src/js/basictable.js & src/js/jquery.basictable.js)
+### 2. JavaScript Enhancements (src/js/basictable.js)
 - **New Options Added**:
   - `cardStyle`: Choose between 'default', 'compact', or 'shadow'
   - `scrollable`: Enable scrolling for tall tables
@@ -23,9 +32,10 @@ This upgrade transforms the Basic Table library to comply with modern Preline UI
 - **Backward Compatibility**: All existing options and methods remain functional
 
 ### 3. Updated Demos
-- **Enhanced vanilla-js.html**: Added comprehensive Preline UI examples
+- **Main Demo**: Renamed to `index.html` with comprehensive Preline UI examples
 - **New Comparison Demo**: `preline-comparison.html` showing old vs new approaches
 - **Real-world Examples**: Customer data, product catalogs, events, and transactions
+- **jQuery Demo Removed**: Focus on modern Vanilla JS implementation
 
 ### 4. Documentation Updates
 - **Updated README.md**: Complete documentation of new features
@@ -105,11 +115,18 @@ new basictable('.table', {
 
 - `src/css/basictable.css` - Complete responsive design overhaul
 - `src/js/basictable.js` - Added new options and wrapper management
-- `src/js/jquery.basictable.js` - jQuery version with same enhancements
-- `demo/vanilla-js.html` - Added Preline UI examples
+- `demo/index.html` - Main demo with Preline UI examples (renamed from vanilla-js.html)
 - `demo/preline-comparison.html` - New comparison demo
-- `README.md` - Updated documentation
-- `dist/` - All compiled files updated
+- `README.md` - Updated documentation focusing on Vanilla JS
+- `package.json` - Updated to version 3.0.0, removed jQuery references
+- `dist/` - Compiled files updated (jQuery files removed)
+
+## Files Removed
+
+- `src/js/jquery.basictable.js` - jQuery version removed
+- `dist/js/jquery.basictable.js` - jQuery compiled version removed
+- `dist/js/jquery.basictable.min.js` - jQuery minified version removed
+- `demo/jquery.html` - jQuery demo removed
 
 ## Testing
 
@@ -117,7 +134,7 @@ The implementation has been tested with:
 - Various screen sizes and breakpoints
 - Different data types and table structures
 - All style variants and options
-- Both jQuery and Vanilla JS versions
+- Pure Vanilla JS implementation
 - Light and dark mode appearances
 
 This upgrade maintains the simplicity and lightweight nature of the original library while providing a modern, Preline UI-compliant responsive experience that significantly improves mobile usability.

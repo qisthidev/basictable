@@ -121,6 +121,7 @@ Choose the card style for responsive mode. Options are:
 - `'default'` - Standard card styling with modern shadows and spacing
 - `'compact'` - Reduced padding and spacing for tables with many rows
 - `'shadow'` - Enhanced shadows for a more elevated appearance
+- `'inline'` - Compact inline format where labels and values appear on the same line
 
 ### scrollable
 
@@ -206,6 +207,12 @@ new basictable('.table', {
 new basictable('.table', {
   tableWrap: true,
   cardStyle: 'shadow'
+});
+
+// Inline format - labels and values on same line
+new basictable('.table', {
+  tableWrap: true,
+  cardStyle: 'inline'
 });
 ```
 

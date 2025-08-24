@@ -15,7 +15,7 @@ class basictable { // eslint-disable-line no-unused-vars
       tableWrap: false,
       showEmptyCells: false,
       header: true,
-      cardStyle: 'default', // 'default', 'compact', 'shadow'
+      cardStyle: 'default', // 'default', 'compact', 'shadow', 'inline'
       scrollable: false,
       maxHeight: null
     }
@@ -51,6 +51,8 @@ class basictable { // eslint-disable-line no-unused-vars
           tableWrapper.classList.add('bt-card-compact')
         } else if (this.options.cardStyle === 'shadow') {
           tableWrapper.classList.add('bt-card-shadow')
+        } else if (this.options.cardStyle === 'inline') {
+          tableWrapper.classList.add('bt-card-inline')
         }
         
         // Add scrollable class if enabled

@@ -879,6 +879,58 @@ new basictable('#table-preline-shadow', {
 });
   </div>
 
+  <h3>Inline Card Style</h3>
+  <p>Compact inline format where labels and values appear on the same line - perfect for mobile-first designs with limited space.</p>
+
+  <table id="table-preline-inline" class="table">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>John Doe</td>
+        <td>john.doe@example.com</td>
+        <td>Admin</td>
+        <td>Active</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Jane Smith</td>
+        <td>jane.smith@example.com</td>
+        <td>Editor</td>
+        <td>Active</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Mike Johnson</td>
+        <td>mike.johnson@example.com</td>
+        <td>Viewer</td>
+        <td>Inactive</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Sarah Wilson</td>
+        <td>sarah.wilson@example.com</td>
+        <td>Editor</td>
+        <td>Active</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="code-block">
+new basictable('#table-preline-inline', {
+  tableWrap: true,
+  cardStyle: 'inline'
+});
+  </div>
+
   <h3>Scrollable Card Container</h3>
   <p>For tables with many rows, you can enable scrolling within the card container.</p>
 
@@ -994,6 +1046,11 @@ new basictable('#table-preline-scrollable', {
   new basictable('#table-preline-shadow', {
     tableWrap: true,
     cardStyle: 'shadow'
+  });
+
+  new basictable('#table-preline-inline', {
+    tableWrap: true,
+    cardStyle: 'inline'
   });
 
   new basictable('#table-preline-scrollable', {

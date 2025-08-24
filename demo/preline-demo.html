@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no"/>
+  <title>Basic Table with Preline UI & Tailwind CSS Demo</title>
+
+  <!-- Tailwind CSS with our custom basictable styles -->
+  <link rel="stylesheet" type="text/css" href="../dist/css/basictable-tailwind.css" />
+  
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Basic Table jQuery Plugin -->
+  <script type="text/javascript" src="../dist/js/jquery.basictable.min.js"></script>
+  <!-- Preline UI -->
+  <script src="../node_modules/preline/preline.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.preline-table').basictable();
+      
+      $('#table-breakpoint').basictable({
+        breakpoint: 768
+      });
+
+      $('#table-container-breakpoint').basictable({
+        containerBreakpoint: 485
+      });
+
+      $('#table-with-actions').basictable();
+      
+      // Initialize Preline UI components
+      if (typeof HSStaticMethods !== 'undefined') {
+        HSStaticMethods.autoInit();
+      }
+    });
+  </script>
+</head>
+
+<body class="bg-gray-50">
+<div class="max-w-7xl mx-auto p-6 lg:p-8">
+  
+  <!-- Header -->
+  <div class="mb-8">
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">Basic Table with Preline UI</h1>
+    <p class="text-lg text-gray-600">Demonstration of responsive tables using Basic Table library with modern Preline UI styling and Tailwind CSS.</p>
+  </div>
+
+  <!-- Basic Preline UI Styled Table -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Basic Implementation</h2>
+    <p class="text-gray-600 mb-6">A responsive table with Preline UI styling that adapts to smaller screens.</p>
+    
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+      <div class="px-6 py-4 border-b border-gray-200">
+        <h3 class="text-lg font-medium text-gray-900">User Data</h3>
+      </div>
+      
+      <table class="preline-table min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Age</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Gender</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Height</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Province</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Sport</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Jill Smith</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">25</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Female</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">5'4</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">British Columbia</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Volleyball</td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">John Doe</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">30</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Male</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">5'9</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Ontario</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Badminton</td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Jane Strip</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">29</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Female</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">5'6</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Manitoba</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Hockey</td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Gary Mountain</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">21</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Male</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">5'8</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Alberta</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Curling</td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">James Camera</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">31</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Male</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">6'1</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Saskatchewan</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Football</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Table with Custom Breakpoint -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Custom Breakpoint (768px)</h2>
+    <p class="text-gray-600 mb-6">This table becomes responsive at 768px instead of the default 568px.</p>
+    
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+      <div class="px-6 py-4 border-b border-gray-200">
+        <h3 class="text-lg font-medium text-gray-900">Product Inventory</h3>
+      </div>
+      
+      <table id="table-breakpoint" class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Product</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">SKU</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Stock</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Wireless Headphones</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">WH-001</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Electronics</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">45</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$99.99</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">In Stock</span>
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Laptop Stand</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">LS-002</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Accessories</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">12</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$49.99</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">Low Stock</span>
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">USB-C Cable</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">UC-003</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Cables</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">0</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$19.99</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">Out of Stock</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Table with Actions -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Table with Actions</h2>
+    <p class="text-gray-600 mb-6">A responsive table featuring action buttons using Preline UI components.</p>
+    
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+      <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+        <h3 class="text-lg font-medium text-gray-900">User Management</h3>
+        <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+          <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          Add User
+        </button>
+      </div>
+      
+      <table id="table-with-actions" class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">User</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+            <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 h-10 w-10">
+                  <div class="h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-semibold">JS</div>
+                </div>
+                <div class="ml-4">
+                  <div class="text-sm font-medium text-gray-900">John Smith</div>
+                  <div class="text-sm text-gray-500">Designer</div>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">john.smith@example.com</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Admin</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Active</span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+              <div class="hs-dropdown relative inline-flex">
+                <button id="hs-table-dropdown-1" type="button" class="hs-dropdown-toggle py-1.5 px-2 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+                  Actions
+                  <svg class="hs-dropdown-open:rotate-180 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-[8rem] bg-white shadow-md rounded-lg p-2 mt-2">
+                  <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100" href="#">
+                    Edit
+                  </a>
+                  <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100" href="#">
+                    View
+                  </a>
+                  <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-red-600 hover:bg-gray-100 focus:bg-gray-100" href="#">
+                    Delete
+                  </a>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 h-10 w-10">
+                  <div class="h-10 w-10 rounded-full bg-green-500 flex items-center justify-center text-white font-semibold">AD</div>
+                </div>
+                <div class="ml-4">
+                  <div class="text-sm font-medium text-gray-900">Alice Davis</div>
+                  <div class="text-sm text-gray-500">Developer</div>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">alice.davis@example.com</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">User</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Active</span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+              <div class="hs-dropdown relative inline-flex">
+                <button id="hs-table-dropdown-2" type="button" class="hs-dropdown-toggle py-1.5 px-2 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+                  Actions
+                  <svg class="hs-dropdown-open:rotate-180 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-[8rem] bg-white shadow-md rounded-lg p-2 mt-2">
+                  <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100" href="#">
+                    Edit
+                  </a>
+                  <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100" href="#">
+                    View
+                  </a>
+                  <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-red-600 hover:bg-gray-100 focus:bg-gray-100" href="#">
+                    Delete
+                  </a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Code Examples -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Usage Examples</h2>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- HTML Example -->
+      <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+        <div class="px-6 py-4 border-b border-gray-200">
+          <h3 class="text-lg font-medium text-gray-900">HTML</h3>
+        </div>
+        <div class="p-6">
+          <pre class="text-sm bg-gray-50 rounded-lg p-4 overflow-x-auto"><code>&lt;table class="preline-table min-w-full divide-y divide-gray-200"&gt;
+  &lt;thead class="bg-gray-50"&gt;
+    &lt;tr&gt;
+      &lt;th class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"&gt;Name&lt;/th&gt;
+      &lt;th class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"&gt;Email&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody class="bg-white divide-y divide-gray-200"&gt;
+    &lt;tr class="hover:bg-gray-50"&gt;
+      &lt;td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"&gt;John Doe&lt;/td&gt;
+      &lt;td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"&gt;john@example.com&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+        </div>
+      </div>
+
+      <!-- JavaScript Example -->
+      <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+        <div class="px-6 py-4 border-b border-gray-200">
+          <h3 class="text-lg font-medium text-gray-900">JavaScript</h3>
+        </div>
+        <div class="p-6">
+          <pre class="text-sm bg-gray-50 rounded-lg p-4 overflow-x-auto"><code>// Basic initialization
+$('.preline-table').basictable();
+
+// With custom breakpoint
+$('#my-table').basictable({
+  breakpoint: 768
+});
+
+// Initialize Preline UI
+if (typeof HSStaticMethods !== 'undefined') {
+  HSStaticMethods.autoInit();</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-200 pt-8 mt-12">
+    <p class="text-sm text-gray-500">
+      This demo showcases the Basic Table library enhanced with Preline UI components and Tailwind CSS. 
+      Visit <a href="https://github.com/jerrylow/basictable" class="text-blue-600 hover:text-blue-700">GitHub</a> for more information.
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>

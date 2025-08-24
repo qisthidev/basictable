@@ -8,7 +8,10 @@
     "compile-js": "terser src/js/basictable.js --output dist/js/basictable.min.js -c -m --comments && terser src/js/basictable.js --output dist/js/basictable.js -b indent_level=2",
     "compile-jquery": "terser src/js/jquery.basictable.js --output dist/js/jquery.basictable.min.js -c -m --comments && terser src/js/jquery.basictable.js --output dist/js/jquery.basictable.js -b indent_level=2",
     "compile-css": "uglifycss src/css/basictable.css > dist/css/basictable.min.css --ugly-comments && beautify-css src/css/basictable.css dist/css/basictable.css",
-    "compile": "yarn compile-js && yarn compile-jquery && yarn compile-css",
+    "build-tailwind": "npx tailwindcss -i ./src/css/basictable-tailwind.css -o ./dist/css/basictable-tailwind.css",
+    "build-tailwind-min": "npx tailwindcss -i ./src/css/basictable-tailwind.css -o ./dist/css/basictable-tailwind.min.css --minify",
+    "build-tailwind-watch": "npx tailwindcss -i ./src/css/basictable-tailwind.css -o ./dist/css/basictable-tailwind.css --watch",
+    "compile": "yarn compile-js && yarn compile-jquery && yarn compile-css && yarn build-tailwind-min",
     "lint": "yarn standard src/js/*.js"
   },
   "repository": {
@@ -27,8 +30,13 @@
   },
   "homepage": "https://github.com/jerrylow/basictable#readme",
   "devDependencies": {
+    "@tailwindcss/cli": "^4.1.12",
+    "@tailwindcss/forms": "^0.5.10",
+    "autoprefixer": "^10.4.21",
     "beautify-css": "^1.0.0",
+    "postcss": "^8.5.6",
     "standard": "^16.0.3",
+    "tailwindcss": "^4.1.12",
     "terser": "^5.5.1",
     "uglifycss": "^0.0.29"
   },
@@ -36,5 +44,8 @@
     "globals": [
       "jQuery"
     ]
+  },
+  "dependencies": {
+    "preline": "^3.2.3"
   }
 }

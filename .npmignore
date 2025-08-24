@@ -1,0 +1,43 @@
+# Development files
+.git/
+.gitignore
+yarn.lock
+package-lock.json
+node_modules/
+
+# Demo and development files
+demo/
+*.md
+!README.md
+!CHANGELOG.md
+
+# Development configuration
+.DS_Store
+yarn-error.log
+*.log
+
+# Source maps and development builds
+*.map
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing files
+test/
+tests/
+*.test.js
+*.spec.js
+
+# Documentation that's not needed in package
+PRELINE_UI_UPGRADE.md
+
+# Keep only essential files for npm package
+# Files included via package.json "files" field:
+# - dist/
+# - src/
+# - README.md
+# - CHANGELOG.md  
+# - LICENSE

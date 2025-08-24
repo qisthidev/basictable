@@ -67,7 +67,6 @@ table.bt tbody td::before {
   font-weight: 600;
   font-size: 0.875rem;
   color: #374151;
-  margin-bottom: 0.25rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -177,28 +176,10 @@ table.bt.bt--no-header tbody td::before {
 
 /* Default colon style - only when no specific variant class is present */
 
-.bt-card-inline:not(.bt-inline-equal):not(.bt-inline-none) table.bt tbody td::before {
+.bt-card-inline:not(.bt-inline-none) table.bt tbody td::before {
   content: attr(data-th) ": ";
-  min-width: 4rem;
-  margin-right: 0.5rem;
-}
-
-/* Equal sign variant - NO separator in ::before */
-
-.bt-card-inline.bt-inline-equal table.bt tbody td::before {
-  content: attr(data-th) !important;
-  /* Force override, no colon */
   min-width: 6rem;
   text-align: left;
-  margin-right: 0.5rem;
-}
-
-/* Equal sign in front of content */
-
-.bt-card-inline.bt-inline-equal table.bt tbody td .bt-content::before {
-  content: "= ";
-  font-weight: 600;
-  color: #374151;
   margin-right: 0.5rem;
 }
 
@@ -246,8 +227,7 @@ table.bt.bt--no-header tbody td::before {
 
   /* Inline card dark mode */
 
-  .bt-card-inline table.bt tbody td::before,
-  .bt-card-inline.bt-inline-equal table.bt tbody td .bt-content::before {
+  .bt-card-inline table.bt tbody td::before {
     color: #d1d5db;
   }
 

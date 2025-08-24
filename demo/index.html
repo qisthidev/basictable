@@ -926,43 +926,6 @@ new basictable('#table-preline-inline', {
 });
   </div>
 
-  <h4>Equal Sign Style (IDE-like Alignment)</h4>
-  <p>Equal signs appear in front of values with consistent alignment, creating a clean columnar layout like configuration files.</p>
-  <table id="table-preline-inline-equal" class="table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Full Name</th>
-        <th>Email Address</th>
-        <th>Department</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>John Doe</td>
-        <td>john.doe@example.com</td>
-        <td>Engineering</td>
-        <td>Active</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Jane Smith</td>
-        <td>jane.smith@example.com</td>
-        <td>Design</td>
-        <td>Active</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="code-block">
-new basictable('#table-preline-inline-equal', {
-  tableWrap: true,
-  cardStyle: 'inline',
-  inlineSeparator: 'equal'
-});
-  </div>
 
   <h4>No Separator</h4>
   <table id="table-preline-inline-none" class="table">
@@ -1124,11 +1087,7 @@ new basictable('#table-preline-scrollable', {
     inlineSeparator: 'colon'
   });
 
-  new basictable('#table-preline-inline-equal', {
-    tableWrap: true,
-    cardStyle: 'inline',
-    inlineSeparator: 'equal'
-  });
+
 
   new basictable('#table-preline-inline-none', {
     tableWrap: true,

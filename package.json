@@ -1,7 +1,7 @@
 {
   "name": "basictable",
-  "version": "2.0.5",
-  "description": "Basic Table jQuery and Vanilla JS plugin for simple responsive tables.",
+  "version": "3.0.0",
+  "description": "Basic Table jQuery and Vanilla JS plugin for simple responsive tables with Tailwind CSS and Preline UI support.",
   "main": "jquery.basictable.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -21,7 +21,12 @@
   "keywords": [
     "jquery",
     "table",
-    "responsive"
+    "responsive",
+    "tailwindcss",
+    "preline",
+    "vanilla-js",
+    "ui-components",
+    "css-framework"
   ],
   "author": "jerrylow",
   "license": "MIT",

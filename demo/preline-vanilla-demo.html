@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no"/>
+  <title>Basic Table with Preline UI & Tailwind CSS - Vanilla JS Demo</title>
+
+  <!-- Tailwind CSS with our custom basictable styles -->
+  <link rel="stylesheet" type="text/css" href="../dist/css/basictable-tailwind.css" />
+  
+  <!-- Basic Table Vanilla JS Plugin -->
+  <script type="text/javascript" src="../dist/js/basictable.min.js"></script>
+  <!-- Preline UI -->
+  <script src="../node_modules/preline/preline.js"></script>
+
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize Basic Table on elements with preline-table class
+      const prelineTables = document.querySelectorAll('.preline-table');
+      prelineTables.forEach(table => {
+        new BasicTable(table);
+      });
+      
+      // Initialize table with custom breakpoint
+      const breakpointTable = document.getElementById('table-breakpoint');
+      if (breakpointTable) {
+        new BasicTable(breakpointTable, {
+          breakpoint: 768
+        });
+      }
+
+      // Initialize table with container breakpoint
+      const containerTable = document.getElementById('table-container-breakpoint');
+      if (containerTable) {
+        new BasicTable(containerTable, {
+          containerBreakpoint: 485
+        });
+      }
+
+      // Initialize table with actions
+      const actionsTable = document.getElementById('table-with-actions');
+      if (actionsTable) {
+        new BasicTable(actionsTable);
+      }
+
+      // Initialize table with max height wrapper
+      const maxHeightTable = document.getElementById('table-max-height');
+      if (maxHeightTable) {
+        new BasicTable(maxHeightTable, {
+          tableWrap: true
+        });
+      }
+      
+      // Initialize Preline UI components
+      if (typeof HSStaticMethods !== 'undefined') {
+        HSStaticMethods.autoInit();
+      }
+
+      // Add some interactive functionality for demo purposes
+      setupInteractivity();
+    });
+
+    function setupInteractivity() {
+      // Add click handlers for action buttons
+      document.addEventListener('click', function(e) {
+        if (e.target.matches('.edit-btn')) {
+          e.preventDefault();
+          alert('Edit functionality would be implemented here');
+        }
+        if (e.target.matches('.view-btn')) {
+          e.preventDefault();
+          alert('View functionality would be implemented here');
+        }
+        if (e.target.matches('.delete-btn')) {
+          e.preventDefault();
+          if (confirm('Are you sure you want to delete this item?')) {
+            alert('Delete functionality would be implemented here');
+          }
+        }
+      });
+
+      // Add functionality to the "Add User" button
+      const addUserBtn = document.getElementById('add-user-btn');
+      if (addUserBtn) {
+        addUserBtn.addEventListener('click', function() {
+          alert('Add user functionality would be implemented here');
+        });
+      }
+
+      // Toggle status example
+      document.addEventListener('click', function(e) {
+        if (e.target.matches('.status-toggle')) {
+          e.preventDefault();
+          const badge = e.target;
+          const isActive = badge.textContent.trim() === 'Active';
+          
+          if (isActive) {
+            badge.textContent = 'Inactive';
+            badge.className = 'status-toggle inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 cursor-pointer';
+          } else {
+            badge.textContent = 'Active';
+            badge.className = 'status-toggle inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 cursor-pointer';
+          }
+        }
+      });
+    }
+  </script>
+</head>
+
+<body class="bg-gray-50">
+<div class="max-w-7xl mx-auto p-6 lg:p-8">
+  
+  <!-- Header -->
+  <div class="mb-8">
+    <div class="flex items-center justify-between mb-4">
+      <h1 class="text-4xl font-bold text-gray-900">Basic Table with Preline UI</h1>
+      <div class="flex items-center space-x-2">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+          Vanilla JS
+        </span>
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+          Tailwind CSS
+        </span>
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+          Preline UI
+        </span>
+      </div>
+    </div>
+    <p class="text-lg text-gray-600">Demonstration of responsive tables using Basic Table library with modern Preline UI styling, Tailwind CSS, and pure Vanilla JavaScript (no jQuery required).</p>
+    
+    <div class="mt-4 flex space-x-4">
+      <a href="preline-demo.html" class="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        jQuery Demo
+      </a>
+      <a href="jquery.html" class="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        Original Demo
+      </a>
+    </div>
+  </div>
+
+  <!-- Basic Preline UI Styled Table -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Basic Implementation</h2>
+    <p class="text-gray-600 mb-6">A responsive table with Preline UI styling that adapts to smaller screens using Vanilla JavaScript.</p>
+    
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+      <div class="px-6 py-4 border-b border-gray-200">
+        <div class="flex justify-between items-center">
+          <h3 class="text-lg font-medium text-gray-900">User Data</h3>
+          <div class="flex items-center space-x-2">
+            <span class="text-sm text-gray-500">5 users</span>
+            <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+          </div>
+        </div>
+      </div>
+      
+      <table class="preline-table min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Age</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Gender</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Height</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Province</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Sport</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Jill Smith</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">25</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Female</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">5'4"</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">British Columbia</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Volleyball</td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">John Doe</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">30</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Male</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">5'9"</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Ontario</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Badminton</td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Jane Strip</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">29</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Female</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">5'6"</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Manitoba</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Hockey</td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Gary Mountain</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">21</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Male</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">5'8"</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Alberta</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Curling</td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Sarah Wilson</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">27</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Female</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">5'7"</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Quebec</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Tennis</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Table with Custom Breakpoint -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Custom Breakpoint (768px)</h2>
+    <p class="text-gray-600 mb-6">This table becomes responsive at 768px instead of the default 568px.</p>
+    
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+      <div class="px-6 py-4 border-b border-gray-200">
+        <div class="flex justify-between items-center">
+          <h3 class="text-lg font-medium text-gray-900">Product Inventory</h3>
+          <button type="button" class="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <svg class="-ml-0.5 mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Export
+          </button>
+        </div>
+      </div>
+      
+      <table id="table-breakpoint" class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Product</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">SKU</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Stock</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Wireless Headphones</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">WH-001</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Electronics</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">45</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$99.99</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">In Stock</span>
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Laptop Stand</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">LS-002</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Accessories</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">12</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$49.99</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">Low Stock</span>
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">USB-C Cable</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">UC-003</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Cables</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">0</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$19.99</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">Out of Stock</span>
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Bluetooth Speaker</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">BS-004</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Electronics</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">28</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$79.99</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">In Stock</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Table with Actions -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Interactive Table with Actions</h2>
+    <p class="text-gray-600 mb-6">A responsive table featuring interactive elements using Preline UI components and Vanilla JavaScript.</p>
+    
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+      <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+        <h3 class="text-lg font-medium text-gray-900">User Management</h3>
+        <button id="add-user-btn" type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+          <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          Add User
+        </button>
+      </div>
+      
+      <table id="table-with-actions" class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">User</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+            <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 h-10 w-10">
+                  <div class="h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-semibold">JS</div>
+                </div>
+                <div class="ml-4">
+                  <div class="text-sm font-medium text-gray-900">John Smith</div>
+                  <div class="text-sm text-gray-500">Designer</div>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">john.smith@example.com</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Admin</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="status-toggle inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 cursor-pointer" title="Click to toggle">Active</span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+              <div class="hs-dropdown relative inline-flex">
+                <button type="button" class="hs-dropdown-toggle py-1.5 px-2 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+                  Actions
+                  <svg class="hs-dropdown-open:rotate-180 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-[8rem] bg-white shadow-md rounded-lg p-2 mt-2">
+                  <a class="edit-btn flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100" href="#">
+                    Edit
+                  </a>
+                  <a class="view-btn flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100" href="#">
+                    View
+                  </a>
+                  <a class="delete-btn flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-red-600 hover:bg-gray-100 focus:bg-gray-100" href="#">
+                    Delete
+                  </a>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 h-10 w-10">
+                  <div class="h-10 w-10 rounded-full bg-green-500 flex items-center justify-center text-white font-semibold">AD</div>
+                </div>
+                <div class="ml-4">
+                  <div class="text-sm font-medium text-gray-900">Alice Davis</div>
+                  <div class="text-sm text-gray-500">Developer</div>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">alice.davis@example.com</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">User</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="status-toggle inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 cursor-pointer" title="Click to toggle">Active</span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+              <div class="hs-dropdown relative inline-flex">
+                <button type="button" class="hs-dropdown-toggle py-1.5 px-2 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+                  Actions
+                  <svg class="hs-dropdown-open:rotate-180 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-[8rem] bg-white shadow-md rounded-lg p-2 mt-2">
+                  <a class="edit-btn flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100" href="#">
+                    Edit
+                  </a>
+                  <a class="view-btn flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100" href="#">
+                    View
+                  </a>
+                  <a class="delete-btn flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-red-600 hover:bg-gray-100 focus:bg-gray-100" href="#">
+                    Delete
+                  </a>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 h-10 w-10">
+                  <div class="h-10 w-10 rounded-full bg-purple-500 flex items-center justify-center text-white font-semibold">MB</div>
+                </div>
+                <div class="ml-4">
+                  <div class="text-sm font-medium text-gray-900">Mike Brown</div>
+                  <div class="text-sm text-gray-500">Manager</div>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">mike.brown@example.com</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Admin</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="status-toggle inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 cursor-pointer" title="Click to toggle">Inactive</span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+              <div class="hs-dropdown relative inline-flex">
+                <button type="button" class="hs-dropdown-toggle py-1.5 px-2 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+                  Actions
+                  <svg class="hs-dropdown-open:rotate-180 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-[8rem] bg-white shadow-md rounded-lg p-2 mt-2">
+                  <a class="edit-btn flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100" href="#">
+                    Edit
+                  </a>
+                  <a class="view-btn flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100" href="#">
+                    View
+                  </a>
+                  <a class="delete-btn flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-red-600 hover:bg-gray-100 focus:bg-gray-100" href="#">
+                    Delete
+                  </a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Container Breakpoint Demo -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Container Breakpoint Demo</h2>
+    <p class="text-gray-600 mb-6">This example shows how container-based responsive behavior works. The table becomes responsive based on its container width rather than viewport width.</p>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div class="lg:col-span-2">
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+          <div class="px-6 py-4 border-b border-gray-200">
+            <h3 class="text-lg font-medium text-gray-900">Task List (Container: 2/3 width)</h3>
+          </div>
+          
+          <table id="table-container-breakpoint" class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Task</th>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Assignee</th>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Priority</th>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Due Date</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <tr class="hover:bg-gray-50">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Update Documentation</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">John Smith</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">Medium</span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2024-01-15</td>
+              </tr>
+              <tr class="hover:bg-gray-50">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Fix Login Bug</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Alice Davis</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">High</span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2024-01-10</td>
+              </tr>
+              <tr class="hover:bg-gray-50">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Code Review</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Mike Brown</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Low</span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2024-01-20</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="lg:col-span-1">
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+          <h4 class="text-lg font-medium text-gray-900 mb-4">About Container Breakpoint</h4>
+          <div class="space-y-3 text-sm text-gray-600">
+            <p>The table on the left uses a container breakpoint of 485px.</p>
+            <p>Try resizing the browser window - the table will become responsive when its container (not the viewport) becomes too narrow.</p>
+            <p>This is useful for sidebar tables or tables within constrained layouts.</p>
+          </div>
+          
+          <div class="mt-6 pt-4 border-t border-gray-200">
+            <h5 class="font-medium text-gray-900 mb-2">Settings Used:</h5>
+            <pre class="text-xs bg-gray-50 rounded p-2 overflow-x-auto"><code>new BasicTable(table, {
+  containerBreakpoint: 485
+});</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Table with Max Height -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Scrollable Table with Max Height</h2>
+    <p class="text-gray-600 mb-6">This table has a maximum height and scrolls when content exceeds the height limit.</p>
+    
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+      <div class="px-6 py-4 border-b border-gray-200">
+        <h3 class="text-lg font-medium text-gray-900">Large Dataset (Scrollable)</h3>
+      </div>
+      
+      <table id="table-max-height" class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Department</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Location</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase tracking-wider">Salary</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">001</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Emma Thompson</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Engineering</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">San Francisco</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$95,000</td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">002</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">David Wilson</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Marketing</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">New York</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$72,000</td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">003</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Sarah Johnson</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Design</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Los Angeles</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$88,000</td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">004</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Michael Chen</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Engineering</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Seattle</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$102,000</td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">005</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Lisa Rodriguez</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sales</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Miami</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$67,000</td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">006</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Robert Kim</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Engineering</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Austin</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$91,000</td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">007</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Jennifer Lopez</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">HR</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Chicago</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$59,000</td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">008</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Tom Anderson</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Finance</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Boston</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$85,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Code Examples -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Vanilla JS Usage Examples</h2>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- HTML Example -->
+      <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+        <div class="px-6 py-4 border-b border-gray-200">
+          <h3 class="text-lg font-medium text-gray-900">HTML Structure</h3>
+        </div>
+        <div class="p-6">
+          <pre class="text-sm bg-gray-50 rounded-lg p-4 overflow-x-auto"><code>&lt;table class="preline-table min-w-full divide-y divide-gray-200"&gt;
+  &lt;thead class="bg-gray-50"&gt;
+    &lt;tr&gt;
+      &lt;th class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"&gt;Name&lt;/th&gt;
+      &lt;th class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase"&gt;Email&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody class="bg-white divide-y divide-gray-200"&gt;
+    &lt;tr class="hover:bg-gray-50"&gt;
+      &lt;td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"&gt;John Doe&lt;/td&gt;
+      &lt;td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"&gt;john@example.com&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+        </div>
+      </div>
+
+      <!-- JavaScript Example -->
+      <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+        <div class="px-6 py-4 border-b border-gray-200">
+          <h3 class="text-lg font-medium text-gray-900">Vanilla JavaScript</h3>
+        </div>
+        <div class="p-6">
+          <pre class="text-sm bg-gray-50 rounded-lg p-4 overflow-x-auto"><code>// Basic initialization
+const table = document.querySelector('.preline-table');
+new BasicTable(table);
+
+// With custom options
+new BasicTable(table, {
+  breakpoint: 768,
+  containerBreakpoint: 485,
+  tableWrap: true
+});
+
+// Initialize Preline UI
+if (typeof HSStaticMethods !== 'undefined') {
+  HSStaticMethods.autoInit();</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance Info -->
+  <section class="mb-12">
+    <div class="bg-blue-50 border border-blue-200 rounded-xl p-6">
+      <div class="flex items-start">
+        <div class="flex-shrink-0">
+          <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <div class="ml-3">
+          <h3 class="text-sm font-medium text-blue-800">Performance Benefits</h3>
+          <div class="mt-2 text-sm text-blue-700">
+            <p>This Vanilla JS implementation offers several advantages:</p>
+            <ul class="mt-2 space-y-1">
+              <li>• <strong>No jQuery dependency</strong> - Smaller bundle size and faster loading</li>
+              <li>• <strong>Modern JavaScript</strong> - Uses ES6+ features for better performance</li>
+              <li>• <strong>Tailwind CSS</strong> - Optimized CSS with automatic purging</li>
+              <li>• <strong>Preline UI</strong> - Accessible components with proper ARIA support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-200 pt-8 mt-12">
+    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center">
+      <div>
+        <p class="text-sm text-gray-500">
+          This demo showcases the Basic Table library enhanced with Preline UI components, Tailwind CSS, and pure Vanilla JavaScript.
+        </p>
+        <p class="text-sm text-gray-500 mt-1">
+          Visit <a href="https://github.com/jerrylow/basictable" class="text-blue-600 hover:text-blue-700">GitHub</a> for more information.
+        </p>
+      </div>
+      <div class="mt-4 lg:mt-0 flex space-x-4">
+        <a href="preline-demo.html" class="text-sm text-blue-600 hover:text-blue-700">jQuery Version</a>
+        <a href="jquery.html" class="text-sm text-blue-600 hover:text-blue-700">Original Demo</a>
+        <a href="vanilla-js.html" class="text-sm text-blue-600 hover:text-blue-700">Original Vanilla JS</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

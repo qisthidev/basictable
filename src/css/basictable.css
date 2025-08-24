@@ -153,8 +153,8 @@ table.bt.bt--no-header tbody td::before {
   padding-top: 0;
 }
 
-/* Default inline style with colon */
-.bt-card-inline table.bt tbody td::before {
+/* Default inline style with colon - only applies when no other variant is used */
+.bt-card-inline:not(.bt-inline-equal):not(.bt-inline-none) table.bt tbody td::before {
   content: attr(data-th) ": ";
   display: inline-block;
   font-weight: 600;
@@ -229,7 +229,7 @@ table.bt.bt--no-header tbody td::before {
   }
 
   /* Inline card dark mode */
-  .bt-card-inline table.bt tbody td::before,
+  .bt-card-inline:not(.bt-inline-equal):not(.bt-inline-none) table.bt tbody td::before,
   .bt-card-inline.bt-inline-equal table.bt tbody td::before,
   .bt-card-inline.bt-inline-equal table.bt tbody td .bt-content::before,
   .bt-card-inline.bt-inline-none table.bt tbody td::before {

@@ -165,9 +165,22 @@ table.bt.bt--no-header tbody td::before {
   flex-shrink: 0;
 }
 
-/* Equal sign variant */
+/* Equal sign variant - aligned like IDE tabs */
 .bt-card-inline.bt-inline-equal table.bt tbody td::before {
-  content: attr(data-th) " = ";
+  content: attr(data-th);
+  min-width: 6rem;
+  text-align: left;
+  margin-right: 0.25rem;
+}
+
+.bt-card-inline.bt-inline-equal table.bt tbody td::after {
+  content: "= ";
+  display: inline-block;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #374151;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
 }
 
 /* No separator variant */
@@ -210,6 +223,7 @@ table.bt.bt--no-header tbody td::before {
   /* Inline card dark mode */
   .bt-card-inline table.bt tbody td::before,
   .bt-card-inline.bt-inline-equal table.bt tbody td::before,
+  .bt-card-inline.bt-inline-equal table.bt tbody td::after,
   .bt-card-inline.bt-inline-none table.bt tbody td::before {
     color: #d1d5db;
   }

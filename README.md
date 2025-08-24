@@ -141,7 +141,7 @@ Set a maximum height for the table container in responsive mode (e.g., '300px', 
 
 Choose the separator style for inline card mode. Options are:
 - `'colon'` - Uses colon separator (e.g., "Name: John Doe")
-- `'equal'` - Uses equal sign separator (e.g., "Name = John Doe")
+- `'equal'` - Uses equal sign separator with IDE-like alignment (all "=" signs align at the same position)
 - `'none'` - No separator, just space (e.g., "Name John Doe")
 
 ## Methods

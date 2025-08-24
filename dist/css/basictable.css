@@ -193,9 +193,9 @@ table.bt.bt--no-header tbody td::before {
   margin-right: 0.5rem;
 }
 
-/* Equal sign in front of content */
+/* Equal sign in front of content - only apply to direct child, not nested bt-content */
 
-.bt-card-inline.bt-inline-equal table.bt tbody td .bt-content::before {
+.bt-card-inline.bt-inline-equal table.bt tbody td > .bt-content::before {
   content: "= ";
   font-weight: 600;
   color: #374151;
@@ -247,7 +247,7 @@ table.bt.bt--no-header tbody td::before {
   /* Inline card dark mode */
 
   .bt-card-inline table.bt tbody td::before,
-  .bt-card-inline.bt-inline-equal table.bt tbody td .bt-content::before {
+  .bt-card-inline.bt-inline-equal table.bt tbody td > .bt-content::before {
     color: #d1d5db;
   }
 

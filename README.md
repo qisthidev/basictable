@@ -141,7 +141,6 @@ Set a maximum height for the table container in responsive mode (e.g., '300px', 
 
 Choose the separator style for inline card mode. Options are:
 - `'colon'` - Uses colon separator (e.g., "Name: John Doe")
-- `'equal'` - Equal signs appear in front of values with consistent alignment (e.g., "Name = John Doe")
 - `'none'` - No separator, just space (e.g., "Name John Doe")
 
 ## Methods
@@ -222,13 +221,6 @@ new basictable('.table', {
 new basictable('.table', {
   tableWrap: true,
   cardStyle: 'inline'
-});
-
-// Inline with equal sign separator
-new basictable('.table', {
-  tableWrap: true,
-  cardStyle: 'inline',
-  inlineSeparator: 'equal'
 });
 
 // Inline with no separator

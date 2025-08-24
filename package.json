@@ -1,6 +1,6 @@
 {
   "name": "basictable",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Basic Table Vanilla JS library for Preline UI-compliant responsive tables with modern card-style mobile design.",
   "main": "basictable.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "card-style",
     "mobile-first"
   ],
-  "author": "jerrylow",
+  "author": "Qisthi Ramadhani <rama@qisthi.dev>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jerrylow/basictable/issues"

@@ -178,30 +178,38 @@ table.bt.bt--no-header tbody td::before {
   flex-shrink: 0;
 }
 
-/* Equal sign variant - aligned like IDE tabs */
+/* Equal sign variant - separator in front of value */
+
+.bt-card-inline.bt-inline-equal table.bt tbody td {
+  justify-content: flex-start;
+}
 
 .bt-card-inline.bt-inline-equal table.bt tbody td::before {
   content: attr(data-th);
-  min-width: 6rem;
-  text-align: left;
-  margin-right: 0.25rem;
-}
-
-.bt-card-inline.bt-inline-equal table.bt tbody td::after {
-  content: "= ";
   display: inline-block;
   font-weight: 600;
   font-size: 0.875rem;
   color: #374151;
+  min-width: 6rem;
+  text-align: left;
   margin-right: 0.5rem;
   flex-shrink: 0;
+}
+
+.bt-card-inline.bt-inline-equal table.bt tbody td .bt-content::before {
+  content: "= ";
+  font-weight: 600;
+  color: #374151;
+  margin-right: 0.5rem;
 }
 
 /* No separator variant */
 
 .bt-card-inline.bt-inline-none table.bt tbody td::before {
   content: attr(data-th);
-  margin-right: 0.75rem;
+  min-width: 6rem;
+  text-align: left;
+  margin-right: 1rem;
 }
 
 .bt-card-inline table.bt tbody td .bt-content {
@@ -240,7 +248,7 @@ table.bt.bt--no-header tbody td::before {
 
   .bt-card-inline table.bt tbody td::before,
   .bt-card-inline.bt-inline-equal table.bt tbody td::before,
-  .bt-card-inline.bt-inline-equal table.bt tbody td::after,
+  .bt-card-inline.bt-inline-equal table.bt tbody td .bt-content::before,
   .bt-card-inline.bt-inline-none table.bt tbody td::before {
     color: #d1d5db;
   }

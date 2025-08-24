@@ -17,7 +17,9 @@ class basictable { // eslint-disable-line no-unused-vars
       header: true,
       cardStyle: 'default', // 'default', 'compact', 'shadow', 'inline'
       scrollable: false,
-      maxHeight: null
+      maxHeight: null,
+      showColon: true, // Show colon after labels in inline mode
+      inlineSeparator: 'colon' // 'colon', 'equal', 'none'
     }
 
     this.tableSel = tableSel
@@ -53,6 +55,14 @@ class basictable { // eslint-disable-line no-unused-vars
           tableWrapper.classList.add('bt-card-shadow')
         } else if (this.options.cardStyle === 'inline') {
           tableWrapper.classList.add('bt-card-inline')
+          
+          // Add separator style for inline cards
+          if (this.options.inlineSeparator === 'equal') {
+            tableWrapper.classList.add('bt-inline-equal')
+          } else if (this.options.inlineSeparator === 'none') {
+            tableWrapper.classList.add('bt-inline-none')
+          }
+          // Default is colon, no additional class needed
         }
         
         // Add scrollable class if enabled

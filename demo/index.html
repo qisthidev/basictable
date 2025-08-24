@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no"/>
+  <title>Basic Table - Preline UI Responsive Demo</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #f8fafc;
+      color: #374151;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    h1 {
+      color: #1f2937;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    h2 {
+      color: #374151;
+      font-size: 1.75rem;
+      margin: 3rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e5e7eb;
+    }
+
+    h3 {
+      color: #1f2937;
+      font-size: 1.25rem;
+      margin: 2rem 0 1rem;
+    }
+
+    h4 {
+      color: #374151;
+      font-size: 1.125rem;
+      margin: 1.5rem 0 0.75rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: #6b7280;
+    }
+
+    /* Base table styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      margin: 1.5rem 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    table th,
+    table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    table th {
+      background: #f9fafb;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    table tbody tr:hover {
+      background: #f9fafb;
+    }
+
+    table tbody tr:last-child th,
+    table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Code blocks */
+    .code-block {
+      background: #1f2937;
+      color: #e5e7eb;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+      font-size: 0.875rem;
+      overflow-x: auto;
+      position: relative;
+    }
+
+    .code-block::after {
+      content: 'JavaScript';
+      position: absolute;
+      top: 0.5rem;
+      right: 0.75rem;
+      font-size: 0.75rem;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .css-block {
+      background: #1f2937;
+      color: #e5e7eb;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+      font-size: 0.875rem;
+      overflow-x: auto;
+      position: relative;
+    }
+
+    .css-block::after {
+      content: 'CSS';
+      position: absolute;
+      top: 0.5rem;
+      right: 0.75rem;
+      font-size: 0.75rem;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Note boxes */
+    .note {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin: 2rem 0;
+    }
+
+    .note p {
+      margin: 0;
+      color: #1e40af;
+    }
+
+    .note strong {
+      color: #1d4ed8;
+    }
+
+    /* Section containers */
+    .section {
+      background: white;
+      border-radius: 0.5rem;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Grid layouts */
+    .grid {
+      display: grid;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .grid-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Feature highlights */
+    .feature-highlight {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+
+    .feature-highlight p {
+      color: #166534;
+      margin: 0;
+    }
+
+    /* Demo description */
+    .demo-description {
+      background: #fefce8;
+      border: 1px solid #fde047;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin: 1rem 0 2rem;
+    }
+
+    .demo-description p {
+      color: #a16207;
+      margin: 0;
+    }
+  </style>
+
+  <link rel="stylesheet" type="text/css" href="../dist/css/basictable.min.css" />
+  <script type="text/javascript" src="../dist/js/basictable.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+  <h1>Basic Table - Preline UI Demo</h1>
+  
+  <div class="note">
+    <p><strong>Modern Responsive Tables:</strong> Demonstration of Preline UI-compliant responsive tables with beautiful card-style mobile design. Resize your browser window or view on mobile to see the transformation.</p>
+  </div>
+
+  <div class="demo-description">
+    <p><strong>Try it:</strong> Resize your browser window to see tables transform into beautiful cards on smaller screens - no horizontal scrolling required!</p>
+  </div>
+
+  <h2>Basic Implementation</h2>
+  <p>The basic implementation using default settings. The table will transform into card-style layout when the viewport is 568px or smaller.</p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Height</th>
+        <th>Province</th>
+        <th>Sport</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Jill Smith</td>
+        <td>25</td>
+        <td>Female</td>
+        <td>5'4</td>
+        <td>British Columbia</td>
+        <td>Volleyball</td>
+      </tr>
+      <tr>
+        <td>30</td>
+        <td>Male</td>
+        <td>5'9</td>
+        <td>Ontario</td>
+        <td>Badminton</td>
+        <td>Badminton</td>
+      </tr>
+      <tr>
+        <td>Jane Strip</td>
+        <td>29</td>
+        <td>Female</td>
+        <td>5'6</td>
+        <td>Manitoba</td>
+        <td>Hockey</td>
+      </tr>
+      <tr>
+        <td>Gary Mountain</td>
+        <td>21</td>
+        <td>Mail</td>
+        <td>5'8</td>
+        <td>Alberta</td>
+        <td>Curling</td>
+      </tr>
+      <tr>
+        <td>James Camera</td>
+        <td>31</td>
+        <td>Male</td>
+        <td>6'1</td>
+        <td>British Columbia</td>
+        <td>Hiking</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="code-block">
+new basictable('.table');
+  </div>
+
+  <h2>Modifying Breakpoint</h2>
+  <p>Manually set the breakpoint per table. Setting the breakpoint to 768px so responsive styles will be applied on a typically tablet, portrait mode.</p>
+
+  <table id="table-breakpoint" class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Height</th>
+        <th>Province</th>
+        <th>Sport</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Jill Smith</td>
+        <td>25</td>
+        <td>Female</td>
+        <td>5'4</td>
+        <td>British Columbia</td>
+        <td>Volleyball</td>
+      </tr>
+      <tr>
+        <td>John Stone</td>
+        <td>30</td>
+        <td>Male</td>
+        <td>5'9</td>
+        <td>Ontario</td>
+        <td>Badminton</td>
+      </tr>
+      <tr>
+        <td>Jane Strip</td>
+        <td>29</td>
+        <td>Female</td>
+        <td>5'6</td>
+        <td>Manitoba</td>
+        <td>Hockey</td>
+      </tr>
+      <tr>
+        <td>Gary Mountain</td>
+        <td>21</td>
+        <td>Mail</td>
+        <td>5'8</td>
+        <td>Alberta</td>
+        <td>Curling</td>
+      </tr>
+      <tr>
+        <td>James Camera</td>
+        <td>31</td>
+        <td>Male</td>
+        <td>6'1</td>
+        <td>British Columbia</td>
+        <td>Hiking</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="code-block">
+new basictable('#table-breakpoint', {
+  breakpoint: 768
+});
+  </div>
+
+  <h2>Modifying Container Breakpoint</h2>
+  <p>Set the breakpoint based on the size of its container opposed to the screens width.</p>
+  <div class="clearfix">
+    <div class="col-sm-9">
+        <table id="table-container-breakpoint">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Height</th>
+            <th>Province</th>
+            <th>Sport</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Jill Smith</td>
+            <td>25</td>
+            <td>Female</td>
+            <td>5'4</td>
+            <td>British Columbia</td>
+            <td>Volleyball</td>
+          </tr>
+          <tr>
+            <td>John Stone</td>
+            <td>30</td>
+            <td>Male</td>
+            <td>5'9</td>
+            <td>Ontario</td>
+            <td>Badminton</td>
+          </tr>
+          <tr>
+            <td>Jane Strip</td>
+            <td>29</td>
+            <td>Female</td>
+            <td>5'6</td>
+            <td>Manitoba</td>
+            <td>Hockey</td>
+          </tr>
+          <tr>
+            <td>Gary Mountain</td>
+            <td>21</td>
+            <td>Mail</td>
+            <td>5'8</td>
+            <td>Alberta</td>
+            <td>Curling</td>
+          </tr>
+          <tr>
+            <td>James Camera</td>
+            <td>31</td>
+            <td>Male</td>
+            <td>6'1</td>
+            <td>British Columbia</td>
+            <td>Hiking</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-3">Other stuff is taking up space in this column. Perhaps, this is a page with a sidebar on larger screens.</div>
+  </div>
+  <div class="code-block">
+new basictable('#table-container-breakpoint', {
+  containerBreakpoint: 485
+});
+  </div>
+
+  <h2>Force Responsive Off</h2>
+
+  <p>The script will not force the table to be responsive. The table will only go into responsive mode when the table is actually larger than its parent container. In this demo the parent of table is the div with id page.</p>
+
+  <table id="table-force-off">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Height</th>
+        <th>Province</th>
+        <th>Sport</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Jill Smith</td>
+        <td>25</td>
+        <td>Female</td>
+        <td>5'4</td>
+        <td>British Columbia</td>
+        <td>Volleyball</td>
+      </tr>
+      <tr>
+        <td>John Stone</td>
+        <td>30</td>
+        <td>Male</td>
+        <td>5'9</td>
+        <td>Ontario</td>
+        <td>Badminton</td>
+      </tr>
+      <tr>
+        <td>Jane Strip</td>
+        <td>29</td>
+        <td>Female</td>
+        <td>5'6</td>
+        <td>Manitoba</td>
+        <td>Hockey</td>
+      </tr>
+      <tr>
+        <td>Gary Mountain</td>
+        <td>21</td>
+        <td>Mail</td>
+        <td>5'8</td>
+        <td>Alberta</td>
+        <td>Curling</td>
+      </tr>
+      <tr>
+        <td>James Camera</td>
+        <td>31</td>
+        <td>Male</td>
+        <td>6'1</td>
+        <td>British Columbia</td>
+        <td>Hiking</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="code-block">
+new basictable('#table-force-off', {
+  forceResponsive: false
+});
+  </div>
+
+  <h3>Max Height</h3>
+  <p>Some tables could get very long in responsive. You could set a max-height in mobile where scrolling within the table would happen. Turn on tableWrap to get a container around the table that toggles an active class. You could also just create your own wrapper and match the breakpoint to do this.</p>
+
+  <table id="table-max-height" class="max-height">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Height</th>
+        <th>Province</th>
+        <th>Sport</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Jill Smith</td>
+        <td>25</td>
+        <td>Female</td>
+        <td>5'4</td>
+        <td>British Columbia</td>
+        <td>Volleyball</td>
+      </tr>
+      <tr>
+        <td>John Stone</td>
+        <td>30</td>
+        <td>Male</td>
+        <td>5'9</td>
+        <td>Ontario</td>
+        <td>Badminton</td>
+      </tr>
+      <tr>
+        <td>Jane Strip</td>
+        <td>29</td>
+        <td>Female</td>
+        <td>5'6</td>
+        <td>Manitoba</td>
+        <td>Hockey</td>
+      </tr>
+      <tr>
+        <td>Gary Mountain</td>
+        <td>21</td>
+        <td>Mail</td>
+        <td>5'8</td>
+        <td>Alberta</td>
+        <td>Curling</td>
+      </tr>
+      <tr>
+        <td>James Camera</td>
+        <td>31</td>
+        <td>Male</td>
+        <td>6'1</td>
+        <td>British Columbia</td>
+        <td>Hiking</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="code-block">
+new basictable('#table-max-height', {
+  tableWrap: true
+});
+  </div>
+
+  <h2>CSS Controls</h2>
+  <h3>Use Media Query Over JS Resize</h3>
+  <p>If you don't want to use the js bind on resize you can use css to control the breakpoint itself. Using basic table to setup the structure itself and copying basictable.css styles into your own media query.</p>
+
+  <table id="table-no-resize">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Height</th>
+        <th>Province</th>
+        <th>Sport</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Jill Smith</td>
+        <td>25</td>
+        <td>Female</td>
+        <td>5'4</td>
+        <td>British Columbia</td>
+        <td>Volleyball</td>
+      </tr>
+      <tr>
+        <td>John Stone</td>
+        <td>30</td>
+        <td>Male</td>
+        <td>5'9</td>
+        <td>Ontario</td>
+        <td>Badminton</td>
+      </tr>
+      <tr>
+        <td>Jane Strip</td>
+        <td>29</td>
+        <td>Female</td>
+        <td>5'6</td>
+        <td>Manitoba</td>
+        <td>Hockey</td>
+      </tr>
+      <tr>
+        <td>Gary Mountain</td>
+        <td>21</td>
+        <td>Mail</td>
+        <td>5'8</td>
+        <td>Alberta</td>
+        <td>Curling</td>
+      </tr>
+      <tr>
+        <td>James Camera</td>
+        <td>31</td>
+        <td>Male</td>
+        <td>6'1</td>
+        <td>British Columbia</td>
+        <td>Hiking</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="css-block">
+@media only screen and (max-width: 568px) {
+  #table-no-resize thead {
+    display: none;
+  }
+
+  #table-no-resize tbody td {
+    border: none !important;
+    display: block;
+    vertical-align: top;
+  }
+
+  #table-no-resize tbody td:before {
+    content: attr(data-th) ": ";
+    display: inline-block;
+    font-weight: bold;
+    width: 6.5em;
+  }
+
+  #table-no-resize tbody td.bt-hide {
+    display: none;
+  }
+}
+  </div>
+
+  <div class="code-block">
+new basictable('#table-no-resize', {
+  noResize: true
+});
+  </div>
+
+  <h3>Two Axis Styling</h3>
+  <p>Two axis could be styled differently. This does not need to be done through the library itself. The example code will show how to target the first column in desktop and first row in responsive mode.</p>
+
+  <table id="table-two-axis" class="two-axis">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Height</th>
+        <th>Province</th>
+        <th>Sport</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Jill Smith</td>
+        <td>25</td>
+        <td>Female</td>
+        <td>5'4</td>
+        <td>British Columbia</td>
+        <td>Volleyball</td>
+      </tr>
+      <tr>
+        <td>John Stone</td>
+        <td>30</td>
+        <td>Male</td>
+        <td>5'9</td>
+        <td>Ontario</td>
+        <td>Badminton</td>
+      </tr>
+      <tr>
+        <td>Jane Strip</td>
+        <td>29</td>
+        <td>Female</td>
+        <td>5'6</td>
+        <td>Manitoba</td>
+        <td>Hockey</td>
+      </tr>
+      <tr>
+        <td>Gary Mountain</td>
+        <td>21</td>
+        <td>Mail</td>
+        <td>5'8</td>
+        <td>Alberta</td>
+        <td>Curling</td>
+      </tr>
+      <tr>
+        <td>James Camera</td>
+        <td>31</td>
+        <td>Male</td>
+        <td>6'1</td>
+        <td>British Columbia</td>
+        <td>Hiking</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="css-block">
+table.two-axis tr td:first-of-type {
+  background: #dff1f7;
+}
+
+@media only screen and (max-width: 568px) {
+  table.two-axis tr td:first-of-type,
+  table.two-axis tr:nth-of-type(2n+2) td:first-of-type,
+  table.two-axis tr td:first-of-type:before {
+    background: #dff1f7;
+    color: #ffffff;
+  }
+
+  table.two-axis tr td:first-of-type {
+    border-bottom: 1px solid #e4ebeb;
+  }
+}
+  </div>
+
+  <div class="section">
+    <h2>Preline UI-Compliant Card Style (NEW)</h2>
+    <div class="feature-highlight">
+      <p><strong>New in v3.0:</strong> Modern card-style responsive design that follows Preline UI patterns. Each row becomes a beautifully styled card on mobile devices, providing better readability and user experience.</p>
+    </div>
+
+  <table id="table-preline-default" class="table">
+    <thead>
+      <tr>
+        <th>Customer</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Plan</th>
+        <th>Revenue</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Alice Johnson</td>
+        <td>alice.johnson@example.com</td>
+        <td>Active</td>
+        <td>Premium</td>
+        <td>$299/mo</td>
+        <td>Edit | Delete</td>
+      </tr>
+      <tr>
+        <td>Bob Smith</td>
+        <td>bob.smith@example.com</td>
+        <td>Pending</td>
+        <td>Basic</td>
+        <td>$49/mo</td>
+        <td>Edit | Delete</td>
+      </tr>
+      <tr>
+        <td>Carol Davis</td>
+        <td>carol.davis@example.com</td>
+        <td>Active</td>
+        <td>Enterprise</td>
+        <td>$999/mo</td>
+        <td>Edit | Delete</td>
+      </tr>
+      <tr>
+        <td>David Wilson</td>
+        <td>david.wilson@example.com</td>
+        <td>Inactive</td>
+        <td>Basic</td>
+        <td>$0/mo</td>
+        <td>Edit | Delete</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="code-block">
+new basictable('#table-preline-default', {
+  tableWrap: true,
+  cardStyle: 'default'
+});
+  </div>
+
+  <h3>Compact Card Style</h3>
+  <p>More compact cards with reduced padding for tables with many rows.</p>
+
+  <table id="table-preline-compact" class="table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>SKU</th>
+        <th>Stock</th>
+        <th>Price</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Wireless Headphones</td>
+        <td>WH-001</td>
+        <td>25</td>
+        <td>$89.99</td>
+        <td>Electronics</td>
+      </tr>
+      <tr>
+        <td>Bluetooth Speaker</td>
+        <td>BS-002</td>
+        <td>12</td>
+        <td>$59.99</td>
+        <td>Electronics</td>
+      </tr>
+      <tr>
+        <td>Smart Watch</td>
+        <td>SW-003</td>
+        <td>8</td>
+        <td>$199.99</td>
+        <td>Wearables</td>
+      </tr>
+      <tr>
+        <td>Phone Case</td>
+        <td>PC-004</td>
+        <td>50</td>
+        <td>$19.99</td>
+        <td>Accessories</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="code-block">
+new basictable('#table-preline-compact', {
+  tableWrap: true,
+  cardStyle: 'compact'
+});
+  </div>
+
+  <h3>Enhanced Shadow Card Style</h3>
+  <p>Cards with enhanced shadows for a more elevated appearance.</p>
+
+  <table id="table-preline-shadow" class="table">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Attendees</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tech Conference 2024</td>
+        <td>March 15, 2024</td>
+        <td>San Francisco, CA</td>
+        <td>1,250</td>
+        <td>Confirmed</td>
+      </tr>
+      <tr>
+        <td>Design Workshop</td>
+        <td>April 8, 2024</td>
+        <td>New York, NY</td>
+        <td>75</td>
+        <td>Planning</td>
+      </tr>
+      <tr>
+        <td>Developer Meetup</td>
+        <td>May 22, 2024</td>
+        <td>Austin, TX</td>
+        <td>200</td>
+        <td>Registration Open</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="code-block">
+new basictable('#table-preline-shadow', {
+  tableWrap: true,
+  cardStyle: 'shadow'
+});
+  </div>
+
+  <h3>Inline Card Style</h3>
+  <p>Compact inline format where labels and values appear on the same line - perfect for mobile-first designs with limited space.</p>
+
+  <h4>Default with Colon</h4>
+  <table id="table-preline-inline" class="table">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>John Doe</td>
+        <td>john.doe@example.com</td>
+        <td>Admin</td>
+        <td>Active</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Jane Smith</td>
+        <td>jane.smith@example.com</td>
+        <td>Editor</td>
+        <td>Active</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="code-block">
+new basictable('#table-preline-inline', {
+  tableWrap: true,
+  cardStyle: 'inline',
+  inlineSeparator: 'colon' // Default
+});
+  </div>
+
+
+  <h4>No Separator</h4>
+  <table id="table-preline-inline-none" class="table">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>John Doe</td>
+        <td>john.doe@example.com</td>
+        <td>Admin</td>
+        <td>Active</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Jane Smith</td>
+        <td>jane.smith@example.com</td>
+        <td>Editor</td>
+        <td>Active</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="code-block">
+new basictable('#table-preline-inline-none', {
+  tableWrap: true,
+  cardStyle: 'inline',
+  inlineSeparator: 'none'
+});
+  </div>
+
+  <h3>Scrollable Card Container</h3>
+  <p>For tables with many rows, you can enable scrolling within the card container.</p>
+
+  <table id="table-preline-scrollable" class="table">
+    <thead>
+      <tr>
+        <th>Transaction ID</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>TXN-001</td>
+        <td>$125.50</td>
+        <td>2024-01-15</td>
+        <td>Purchase</td>
+        <td>Completed</td>
+      </tr>
+      <tr>
+        <td>TXN-002</td>
+        <td>$89.99</td>
+        <td>2024-01-14</td>
+        <td>Refund</td>
+        <td>Pending</td>
+      </tr>
+      <tr>
+        <td>TXN-003</td>
+        <td>$250.00</td>
+        <td>2024-01-13</td>
+        <td>Purchase</td>
+        <td>Completed</td>
+      </tr>
+      <tr>
+        <td>TXN-004</td>
+        <td>$45.75</td>
+        <td>2024-01-12</td>
+        <td>Purchase</td>
+        <td>Completed</td>
+      </tr>
+      <tr>
+        <td>TXN-005</td>
+        <td>$180.25</td>
+        <td>2024-01-11</td>
+        <td>Purchase</td>
+        <td>Failed</td>
+      </tr>
+      <tr>
+        <td>TXN-006</td>
+        <td>$99.99</td>
+        <td>2024-01-10</td>
+        <td>Purchase</td>
+        <td>Completed</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="code-block">
+new basictable('#table-preline-scrollable', {
+  tableWrap: true,
+  scrollable: true,
+  maxHeight: '300px'
+});
+  </div>
+  </div>
+
+  <div class="note">
+    <p><strong>Need help?</strong> Visit the <a href="https://github.com/jerrylow/basictable" target="_blank">GitHub repository</a> for complete documentation and examples. Check out the <a href="preline-comparison.html">comparison demo</a> to see the differences between traditional and modern approaches.</p>
+  </div>
+
+  <p class="credits"><span class="phone-block"><strong>Author:</strong> Jerry Low (<a href="https://twitter.com/jerrylowm" target="_blank">@jerrylowm</a>)</span><span class="phone-hide">&nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="phone-block"><strong>Palette Design:</strong> Amit Jakhu (<a href="https://twitter.com/amitjakhu">@amitjakhu</a>)</span>
+</div>
+
+
+<script type="text/javascript">
+  const table = new basictable('.table');
+
+  new basictable('#table-breakpoint', {
+    breakpoint: 768,
+  });
+
+  new basictable('#table-container-breakpoint', {
+    containerBreakpoint: 485,
+  });
+
+  new basictable('#table-force-off', {
+    forceResponsive: false,
+  });
+
+  new basictable('#table-max-height', {
+    tableWrap: true
+  });
+
+  new basictable('#table-no-resize', {
+    noResize: true,
+  });
+
+  new basictable('#table-two-axis');
+
+  // New Preline UI-compliant examples
+  new basictable('#table-preline-default', {
+    tableWrap: true,
+    cardStyle: 'default'
+  });
+
+  new basictable('#table-preline-compact', {
+    tableWrap: true,
+    cardStyle: 'compact'
+  });
+
+  new basictable('#table-preline-shadow', {
+    tableWrap: true,
+    cardStyle: 'shadow'
+  });
+
+  new basictable('#table-preline-inline', {
+    tableWrap: true,
+    cardStyle: 'inline',
+    inlineSeparator: 'colon'
+  });
+
+
+
+  new basictable('#table-preline-inline-none', {
+    tableWrap: true,
+    cardStyle: 'inline',
+    inlineSeparator: 'none'
+  });
+
+  new basictable('#table-preline-scrollable', {
+    tableWrap: true,
+    scrollable: true,
+    maxHeight: '300px'
+  });
+</script>
+</body>
+</html>

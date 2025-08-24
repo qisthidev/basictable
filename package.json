@@ -1,26 +1,44 @@
 {
   "name": "basictable",
-  "version": "2.0.5",
-  "description": "Basic Table jQuery and Vanilla JS plugin for simple responsive tables.",
-  "main": "jquery.basictable.js",
+  "version": "3.1.0",
+  "description": "Basic Table Vanilla JS library for Preline UI-compliant responsive tables with modern card-style mobile design.",
+  "main": "dist/js/basictable.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile-js": "terser src/js/basictable.js --output dist/js/basictable.min.js -c -m --comments && terser src/js/basictable.js --output dist/js/basictable.js -b indent_level=2",
-    "compile-jquery": "terser src/js/jquery.basictable.js --output dist/js/jquery.basictable.min.js -c -m --comments && terser src/js/jquery.basictable.js --output dist/js/jquery.basictable.js -b indent_level=2",
     "compile-css": "uglifycss src/css/basictable.css > dist/css/basictable.min.css --ugly-comments && beautify-css src/css/basictable.css dist/css/basictable.css",
-    "compile": "yarn compile-js && yarn compile-jquery && yarn compile-css",
-    "lint": "yarn standard src/js/*.js"
+    "build": "npm run compile",
+    "compile": "npm run compile-js && npm run compile-css",
+    "prepublishOnly": "npm run build",
+    "lint": "npm run standard src/js/*.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jerrylow/basictable.git"
   },
   "keywords": [
-    "jquery",
+    "vanilla-js",
     "table",
-    "responsive"
+    "responsive",
+    "preline-ui",
+    "card-style",
+    "mobile-first",
+    "css",
+    "javascript",
+    "ui-components",
+    "responsive-design"
   ],
-  "author": "jerrylow",
+  "files": [
+    "dist/",
+    "src/",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "unpkg": "dist/js/basictable.min.js",
+  "jsdelivr": "dist/js/basictable.min.js",
+  "style": "dist/css/basictable.css",
+  "author": "Qisthi Ramadhani <rama@qisthi.dev>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jerrylow/basictable/issues"
@@ -33,8 +51,6 @@
     "uglifycss": "^0.0.29"
   },
   "standard": {
-    "globals": [
-      "jQuery"
-    ]
+    "globals": []
   }
 }

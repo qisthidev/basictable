@@ -14,7 +14,12 @@ class basictable { // eslint-disable-line no-unused-vars
       noResize: false,
       tableWrap: false,
       showEmptyCells: false,
-      header: true
+      header: true,
+      cardStyle: 'default', // 'default', 'compact', 'shadow', 'inline'
+      scrollable: false,
+      maxHeight: null,
+      showColon: true, // Show colon after labels in inline mode
+      inlineSeparator: 'colon' // 'colon', 'none'
     }
 
     this.tableSel = tableSel
@@ -42,6 +47,33 @@ class basictable { // eslint-disable-line no-unused-vars
       if (this.options.tableWrap) {
         const tableWrapper = document.createElement('div')
         tableWrapper.classList.add('bt-wrapper')
+        
+        // Add card style classes
+        if (this.options.cardStyle === 'compact') {
+          tableWrapper.classList.add('bt-card-compact')
+        } else if (this.options.cardStyle === 'shadow') {
+          tableWrapper.classList.add('bt-card-shadow')
+        } else if (this.options.cardStyle === 'inline') {
+          tableWrapper.classList.add('bt-card-inline')
+          
+          // Add separator style for inline cards
+          if (this.options.inlineSeparator === 'none') {
+            tableWrapper.classList.add('bt-inline-none')
+          }
+          // Default is colon, no additional class needed
+        }
+        
+        // Add scrollable class if enabled
+        if (this.options.scrollable) {
+          tableWrapper.classList.add('bt-scrollable')
+        }
+        
+        // Set max height if specified
+        if (this.options.maxHeight) {
+          tableWrapper.style.maxHeight = this.options.maxHeight
+          tableWrapper.classList.add('bt-scrollable')
+        }
+        
         table.parentNode.insertBefore(tableWrapper, table)
         tableWrapper.appendChild(table)
       }

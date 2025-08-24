@@ -153,35 +153,31 @@ table.bt.bt--no-header tbody td::before {
   padding-top: 0;
 }
 
-/* Default inline style with colon - only applies when no other variant is used */
-.bt-card-inline:not(.bt-inline-equal):not(.bt-inline-none) table.bt tbody td::before {
-  content: attr(data-th) ": ";
+/* Base inline card styling - shared properties */
+.bt-card-inline table.bt tbody td::before {
   display: inline-block;
   font-weight: 600;
   font-size: 0.875rem;
   color: #374151;
-  min-width: 4rem;
-  margin-right: 0.5rem;
   flex-shrink: 0;
 }
 
-/* Equal sign variant - separator in front of value */
-.bt-card-inline.bt-inline-equal table.bt tbody td {
-  justify-content: flex-start;
+/* Default colon style - only when no specific variant class is present */
+.bt-card-inline:not(.bt-inline-equal):not(.bt-inline-none) table.bt tbody td::before {
+  content: attr(data-th) ": ";
+  min-width: 4rem;
+  margin-right: 0.5rem;
 }
 
+/* Equal sign variant - NO separator in ::before */
 .bt-card-inline.bt-inline-equal table.bt tbody td::before {
-  content: attr(data-th);
-  display: inline-block;
-  font-weight: 600;
-  font-size: 0.875rem;
-  color: #374151;
+  content: attr(data-th) !important; /* Force override, no colon */
   min-width: 6rem;
   text-align: left;
   margin-right: 0.5rem;
-  flex-shrink: 0;
 }
 
+/* Equal sign in front of content */
 .bt-card-inline.bt-inline-equal table.bt tbody td .bt-content::before {
   content: "= ";
   font-weight: 600;
@@ -191,7 +187,7 @@ table.bt.bt--no-header tbody td::before {
 
 /* No separator variant */
 .bt-card-inline.bt-inline-none table.bt tbody td::before {
-  content: attr(data-th);
+  content: attr(data-th) !important; /* Force override, no colon */
   min-width: 6rem;
   text-align: left;
   margin-right: 1rem;
@@ -229,10 +225,8 @@ table.bt.bt--no-header tbody td::before {
   }
 
   /* Inline card dark mode */
-  .bt-card-inline:not(.bt-inline-equal):not(.bt-inline-none) table.bt tbody td::before,
-  .bt-card-inline.bt-inline-equal table.bt tbody td::before,
-  .bt-card-inline.bt-inline-equal table.bt tbody td .bt-content::before,
-  .bt-card-inline.bt-inline-none table.bt tbody td::before {
+  .bt-card-inline table.bt tbody td::before,
+  .bt-card-inline.bt-inline-equal table.bt tbody td .bt-content::before {
     color: #d1d5db;
   }
   

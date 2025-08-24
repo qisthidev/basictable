@@ -67,7 +67,6 @@ table.bt tbody td::before {
   font-weight: 600;
   font-size: 0.875rem;
   color: #374151;
-  margin-bottom: 0.25rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -179,7 +178,8 @@ table.bt.bt--no-header tbody td::before {
 
 .bt-card-inline:not(.bt-inline-equal):not(.bt-inline-none) table.bt tbody td::before {
   content: attr(data-th) ": ";
-  min-width: 4rem;
+  min-width: 6rem;
+  text-align: left;
   margin-right: 0.5rem;
 }
 
